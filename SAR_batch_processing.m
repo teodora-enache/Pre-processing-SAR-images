@@ -1,4 +1,4 @@
-%% Everything is built upon new functions: Preprocess_train,Preprocess_test,Distrib,Areas
+%% Before you run this, dont forget that this code builds upon new functions: Preprocess_train,Preprocess_test,Distrib,Areas
 cd "\your folder path here\"
 Oshanas = dir('\*.tif');%the tif files in the folder you use
 %% Read images and water ROI variables (mat files)
