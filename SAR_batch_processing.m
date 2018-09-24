@@ -1,13 +1,12 @@
-%% Everything is built upon new functions: Preprocess,Distrib,Areas
-cd H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets
-Oshanas = dir('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\*.tif');
+%% Everything is built upon new functions: Preprocess_train,Preprocess_test,Distrib,Areas
+cd "\your folder path here\"
+Oshanas = dir('\*.tif');%the tif files in the folder you use
 %% Read images and water ROI variables (mat files)
-cd 'H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\scripts\S1B0525_0426_Publish';
-names=dir('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\scripts\S1B0525_0426_Publish\*.mat');
+names=dir('\*.mat');
 masks =dir('*water_mask1*.mat');
 %% Extract water masks
 for i=1:length(Oshanas)
-    filename = strcat('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\',Oshanas(i).name);
+    filename = strcat('\your folder path here\',Oshanas(i).name);
     I=geotiffread(filename);
     maskname=masks(i).name;
     load(maskname)
@@ -16,7 +15,7 @@ for i=1:length(Oshanas)
 end
 %% Plot PDF (without title)
 for k=1:length(Oshanas)
-    filename = strcat('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\',Oshanas(k).name);
+    filename = strcat('\your folder path here\',Oshanas(k).name);
     I=geotiffread(filename);
     maskname=masks(k).name;
     load(maskname)
@@ -29,7 +28,7 @@ for k=1:length(Oshanas)
 end
 %% Extract number of water_covered pixels
 for l=1:length(Oshanas)
-    filename = strcat('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\',Oshanas(l).name);
+    filename = strcat('\your folder path here\',Oshanas(l).name);
     I=geotiffread(filename);
     maskname=masks(l).name;
     load(maskname)
@@ -42,7 +41,7 @@ end
 s={'25th of May 2017','18th of June 2017','24th of July 2017','29th of August 2017','22nd of September 2017','28th of October 2017',...
     '21st of November 2017','27th of December 2017','20th of January 2018','25th of February 2018','21st of March 2018','26th of April 2018'};
 for m=1:length(Oshanas)
-    filename = strcat('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\',Oshanas(m).name);
+    filename = strcat('\your folder path here\',Oshanas(m).name);
     I=geotiffread(filename);
     maskname=masks(m).name;
     load(maskname)
@@ -60,7 +59,7 @@ for m=1:length(Oshanas)
 end
 %% Extract and save water masks
 for p=1:length(Oshanas)
-    filename = strcat('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\',Oshanas(p).name);
+    filename = strcat('\your folder path here\',Oshanas(p).name);
     I=geotiffread(filename);
     maskname=masks(p).name;
     load(maskname)
@@ -71,12 +70,10 @@ for p=1:length(Oshanas)
     imwrite(VH_water_flt1,file_name,'tif')
 end
 %% Read images and test ROI variables (mat files)
-cd 'H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\scripts\S1B0525_0426_Publish';
-names=dir('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\scripts\S1B0525_0426_Publish\*.mat');
 testmasks =dir('*test_masks*.mat');
 %% Extract test masks
 for r=1:length(Oshanas)
-    filename = strcat('H:\Sentinel_1\1B\Slice_Assembly\corrected\subsets\subsets_of_subsets\',Oshanas(r).name);
+    filename = strcat('\your folder path here\',Oshanas(r).name);
     I=geotiffread(filename);
     testname=testmasks(r).name;
     load(testname)
